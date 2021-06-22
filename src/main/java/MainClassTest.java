@@ -11,4 +11,11 @@ public class MainClassTest extends MainClass {
     public void testGetClassNumber() {
         Assertions.assertTrue(getClassNumber() > 45, "Вернулось число " + getClassNumber() + ", а это меньше 45");
     }
+
+    @Test
+    public void testGetClassString() {
+        if (!getClassString().contains("Hello") && !getClassString().contains("hello")) {
+            Assertions.fail("Строка \"" + getClassString() + "\" не содержит слова \"Hello\" или \"hello\"" );
+        }
+    }
 }
