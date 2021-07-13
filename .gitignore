@@ -10,3 +10,7 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 .idea/uiDesigner.xml
 pom.xml
+/src/TstAzaza.java
+.idea/workspace.xml
+out/production/JavaAppiumAutomation/FirstTest.class
+out/production/JavaAppiumAutomation/FirstTest.class
