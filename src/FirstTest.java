@@ -87,6 +87,36 @@ public class FirstTest {
         );
     }
 
+    @Test
+    public void testCheckWordsAtSearch() {
+        String searchWord = "Java";
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_container"),
+                "Невозможно найти поле  'Search Wikipedia'",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.xpath("//*[contains(@text, 'Search…')]"),
+                searchWord,
+                "Невозможно найти поле ввода поиска",
+                5
+        );
+
+        assertQuantityOfElements(
+                By.id("org.wikipedia:id/page_list_item_container"),
+                "Элемент(ы) не найден(ы) на странице",
+                5
+        );
+
+        assertWordsAtSearch(
+                By.id("org.wikipedia:id/page_list_item_title"),
+                searchWord,
+                "Нужного слова нет в результатах поиска",
+                5
+        );
+    }
+
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -130,5 +160,13 @@ public class FirstTest {
         return wait.until(
                 ExpectedConditions.invisibilityOfElementLocated(by)
         );
+    }
+
+    private void assertWordsAtSearch(By by, String searchWord, String error_message, long timeoutInSeconds) {
+        int i = 0;
+        do {
+            Assert.assertTrue("Нужного слова нет в заголовке", findAllElementsOnPage(by, error_message, timeoutInSeconds).get(i).getAttribute("text").contains(searchWord));
+            i++;
+        } while (i < findAllElementsOnPage(by, error_message, timeoutInSeconds).size());
     }
 }
