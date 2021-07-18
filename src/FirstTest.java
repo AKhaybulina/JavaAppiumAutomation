@@ -285,14 +285,20 @@ public class FirstTest {
                 5
         );
 
+        waitForElementAndClick(
+                By.xpath("//*[@text='" + name_of_second_article + "']"),
+                "Cannot find list with articles",
+                5
+        );
+
         String name_of_article_at_folder = waitForElementAndGetAttribute(
-                By.id("page_list_item_title"),
+                By.id("org.wikipedia:id/view_page_title_text"),
                 "text",
                 "Cannot find articles at folder",
                 15
         );
 
-        Assert.assertEquals("Cannot find article '" + name_of_second_article + "' at folder", name_of_second_article, name_of_article_at_folder);
+        Assert.assertEquals("Article at folder not  '" + name_of_second_article + "'", name_of_second_article, name_of_article_at_folder);
     }
 
 
