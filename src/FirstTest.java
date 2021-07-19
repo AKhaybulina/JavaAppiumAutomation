@@ -301,6 +301,32 @@ public class FirstTest {
         Assert.assertEquals("Article at folder not  '" + name_of_second_article + "'", name_of_second_article, name_of_article_at_folder);
     }
 
+    @Test
+    public void assertTitleWithoutWait() {
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Search Wikipedia')]"),
+                "Cannot find 'Search Wikipedia' input",
+                5
+        );
+
+        String first_search_line = "Java";
+
+        waitForElementAndSendKeys(
+                By.xpath("//*[contains(@text, 'Search…')]"),
+                first_search_line,
+                "Cannot find search input",
+                5
+        );
+
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
+                "Cannot find 'Object-oriented programming language' topic searching by " + first_search_line,
+                5
+        );
+
+        assertElementPresent(By.id("org.wikipedia:id/view_page_title_text"));
+    }
+
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -381,5 +407,9 @@ public class FirstTest {
     private String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeoutInSeconds) {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
         return element.getAttribute(attribute);
+    }
+
+    private void assertElementPresent(By by) {
+      Assert.assertTrue("Cannot find element(s) on page", driver.findElements(by).size() > 0);
     }
 }
