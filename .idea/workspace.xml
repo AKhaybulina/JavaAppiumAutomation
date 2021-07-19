@@ -48,7 +48,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="JUnit.FirstTest.assertTitleWithoutWait">
+  <component name="RunManager" selected="JUnit.FirstTest.testChangeScreenOrientationSearchResults">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -92,6 +92,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FirstTest.testChangeScreenOrientationSearchResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="testChangeScreenOrientationSearchResults" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TstAzaza.testAmountOfEmptySearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -102,23 +112,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TstAzaza.testCheckSearchArticleInBackGround" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaAppiumAutomation" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TstAzaza" />
-      <option name="METHOD_NAME" value="testCheckSearchArticleInBackGround" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirstTest.testChangeScreenOrientationSearchResults" />
         <item itemvalue="JUnit.FirstTest.assertTitleWithoutWait" />
         <item itemvalue="JUnit.FirstTest.saveTwoArticlesToMyList" />
         <item itemvalue="JUnit.FirstTest.saveFirstArticleToMyList" />
         <item itemvalue="JUnit.TstAzaza.testAmountOfEmptySearch" />
-        <item itemvalue="JUnit.TstAzaza.testCheckSearchArticleInBackGround" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +140,7 @@
       <workItem from="1626245552878" duration="8244000" />
       <workItem from="1626419554613" duration="597000" />
       <workItem from="1626554656283" duration="33116000" />
-      <workItem from="1626682478231" duration="6845000" />
+      <workItem from="1626682478231" duration="7582000" />
     </task>
     <servers />
   </component>
