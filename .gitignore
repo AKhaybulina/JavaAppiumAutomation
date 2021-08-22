@@ -13,9 +13,6 @@ pom.xml
 /src/TstAzaza.java
 .idea/workspace.xml
 out/production/JavaAppiumAutomation/FirstTest.class
-out/production/JavaAppiumAutomation/FirstTest.class
-/src/lib/UI/MainPageObjectAzaza.java
-/src/lib/UI/SearchPageObjectAzaza.java
 /src/Azaza/TstAzaza.java
 /src/Azaza/SearchPageObjectAzaza.java
 /src/Azaza/MainPageObjectAzaza.java
@@ -23,5 +20,6 @@ out/production/JavaAppiumAutomation/FirstTest.class
 /src/Azaza/NavigationUIAzaza.java
 /src/Azaza/MyListsPageObjectAzaza.java
 /src/Azaza/ArticlePageObjectAzaza.java
-/src/lib/UI/MainPageObject.java
-/src/lib/CoreTestCase.java
+/src/Azaza/tests/
+.idea/runConfigurations.xml
+
