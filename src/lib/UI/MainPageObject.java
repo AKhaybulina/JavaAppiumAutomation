@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class MainPageObject {
     protected AppiumDriver driver;
@@ -130,4 +131,10 @@ public class MainPageObject {
     public List<WebElement> findAllElementsOnPage(By by) {
         return driver.findElements(by);
     }
+
+//    private By getLocatorString(String locator_with_type) {
+//        String[] exploded_locator = locator_with_type.split(Pattern.quote(":"), 2);
+//        String by_type = exploded_locator[0];
+//        String locator = exploded_locator[1];
+//    }
 }

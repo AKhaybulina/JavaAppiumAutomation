@@ -11,6 +11,9 @@ import java.net.URL;
 
 public class CoreTestCase extends TestCase {
 
+    private static final String PLATFORM_IOS = "iOS";
+    private static final String PLATFORM_ANDROID = "android";
+
     protected AppiumDriver<WebElement> driver;
     private static String AppiumURL = "http://127.0.0.1:4723/wd/hub";
 
@@ -18,17 +21,7 @@ public class CoreTestCase extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "AndroidTestDevice");
-        capabilities.setCapability("platformVersion", "8.0");
-        capabilities.setCapability("automationName", "Appium");
-        capabilities.setCapability("appPackage", "org.wikipedia");
-        capabilities.setCapability("appActivity", ".main.MainActivity");
-        capabilities.setCapability("app", "/Users/akhaybulina/Desktop/JavaAppiumAutomation/apks/org.wikipedia.apk");
-        capabilities.setCapability("orientation", "PORTRAIT");
-
+        DesiredCapabilities capabilities = this.getCapabilitiesByPlatformEnv();
         driver = new AndroidDriver<>(new URL(AppiumURL), capabilities);
     }
 
@@ -48,5 +41,33 @@ public class CoreTestCase extends TestCase {
 
     protected void backgroundApp(int seconds) {
         driver.runAppInBackground(seconds);
+    }
+
+    private DesiredCapabilities getCapabilitiesByPlatformEnv() throws Exception {
+        String platform = System.getenv("PLATFORM");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        if (platform.equals(PLATFORM_ANDROID)) {
+            capabilities.setCapability("platformName", "Android");
+            capabilities.setCapability("deviceName", "AndroidTestDevice");
+            capabilities.setCapability("platformVersion", "8.0");
+            capabilities.setCapability("automationName", "Appium");
+            capabilities.setCapability("appPackage", "org.wikipedia");
+            capabilities.setCapability("appActivity", ".main.MainActivity");
+            capabilities.setCapability("app", "/Users/akhaybulina/Desktop/JavaAppiumAutomation/apks/org.wikipedia.apk");
+            capabilities.setCapability("orientation", "PORTRAIT");
+            capabilities.setCapability("automationName", "UiAutomator1");
+        } else if (platform.equals(PLATFORM_IOS)) {
+
+
+            capabilities.setCapability("platformName", "iOS");
+            capabilities.setCapability("deviceName", "iPhone 11");
+            capabilities.setCapability("platformVersion", "14.5");
+            capabilities.setCapability("app", "/Users/akhaybulina/Desktop/JavaAppiumAutomation/apks/Wikipedia.app");
+            capabilities.setCapability("orientation", "PORTRAIT");
+        } else {
+            throw new Exception("Cannot get run platform from env variable. Platform value = " + platform);
+        }
+        return capabilities;
     }
 }
