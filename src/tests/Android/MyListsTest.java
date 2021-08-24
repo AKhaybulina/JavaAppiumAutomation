@@ -1,10 +1,10 @@
-package tests;
+package tests.Android;
 
 import lib.CoreTestCase;
-import lib.UI.ArticlePageObject;
-import lib.UI.MyListsPageObject;
-import lib.UI.NavigationUI;
-import lib.UI.SearchPageObject;
+import lib.UI.Android.ArticlePageObject;
+import lib.UI.Android.MyListsPageObject;
+import lib.UI.Android.NavigationUI;
+import lib.UI.Android.SearchPageObject;
 import org.junit.Assert;
 import org.junit.Test;
 

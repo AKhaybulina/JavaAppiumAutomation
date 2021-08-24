@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60b08d00-d399-4c50-ad9a-a6d9905a9419" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/java-client-6.1.0 (2).jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/javax.websocket-api-1.1 (1).jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/java_client_4_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/selenium_server_standalone_3_4_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/UI/Android/SearchPageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaAppiumAutomation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaAppiumAutomation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/java-client-4.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/selenium-server-standalone-3.4.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/selenium-server-standalone-3.14.0 (1).jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/CoreTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/CoreTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/UI/ArticlePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/UI/Android/ArticlePageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/UI/MainPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/UI/MainPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/iOSTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/iOSTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/UI/MyListsPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/UI/Android/MyListsPageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/UI/NavigationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/UI/Android/NavigationUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/UI/SearchPageObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/UI/iOS/WelcomePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/UI/iOS/WelcomePageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/ArticleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Android/ArticleTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/ChangeAppConditionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Android/ChangeAppConditionTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/MyListsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Android/MyListsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/SearchTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/Android/SearchTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/iOS/GetStartedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/iOS/GetStartedTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +79,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="kotlin.migration.detection.enabled" value="false" />
@@ -100,135 +102,314 @@
       <recent name="lib.UI" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SearchTests.testCancelSearch">
-    <configuration name="ArticleTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GetStartedTest.testPassThroughWelcome">
+    <configuration name="ArticleTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="tests.Android.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ArticleTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.ArticleTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
       <envs>
         <env name="PLATFORM" value="android" />
       </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArticleTests.testAssertTitleWithoutWait" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleTests.testAssertTitleWithoutWait" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="tests.Android.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ArticleTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.ArticleTests" />
       <option name="METHOD_NAME" value="testAssertTitleWithoutWait" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
       <envs>
         <env name="PLATFORM" value="android" />
       </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChangeAppConditionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChangeAppConditionTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="tests.Android.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ChangeAppConditionTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.ChangeAppConditionTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
       <envs>
         <env name="PLATFORM" value="android" />
       </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChangeAppConditionTests.testChangeScreenOrientationSearchResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChangeAppConditionTests.testChangeScreenOrientationSearchResults" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="tests.Android.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ChangeAppConditionTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.ChangeAppConditionTests" />
       <option name="METHOD_NAME" value="testChangeScreenOrientationSearchResults" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
       <envs>
         <env name="PLATFORM" value="android" />
       </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyListsTest.testSaveTwoArticlesToMyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GetStartedTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tests.*" />
+          <option name="PATTERN" value="tests.iOS.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MyListsTest" />
-      <option name="METHOD_NAME" value="testSaveTwoArticlesToMyList" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.iOS" />
+      <option name="MAIN_CLASS_NAME" value="tests.iOS.GetStartedTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="iOS" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetStartedTest.testPassThroughWelcome" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.iOS.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.iOS" />
+      <option name="MAIN_CLASS_NAME" value="tests.iOS.GetStartedTest" />
+      <option name="METHOD_NAME" value="testPassThroughWelcome" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="iOS" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyListsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.Android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.MyListsTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
       <envs>
         <env name="PLATFORM" value="android" />
       </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyListsTest.testSaveTwoArticlesToMyList" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.Android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.MyListsTest" />
+      <option name="METHOD_NAME" value="testSaveTwoArticlesToMyList" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="android" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.Android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.SearchTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="android" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="SearchTests.testCancelSearch" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.Android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.SearchTests" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.SearchTests" />
       <option name="METHOD_NAME" value="testCancelSearch" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
       <envs>
         <env name="PLATFORM" value="android" />
       </envs>
-      <dir value="$PROJECT_DIR$/src" />
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTests.testCheckWordsAtSearch" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.Android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.SearchTests" />
+      <option name="METHOD_NAME" value="testCheckWordsAtSearch" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="android" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTests.testTextOfSearchField" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppiumAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.Android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.Android" />
+      <option name="MAIN_CLASS_NAME" value="tests.Android.SearchTests" />
+      <option name="METHOD_NAME" value="testTextOfSearchField" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="android" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="JavaAppiumAutomation" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8 (3)" />
+      <option name="PACKAGE_NAME" value="tests.iOS" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/Android" />
+      <envs>
+        <env name="PLATFORM" value="android" />
+      </envs>
+      <dir value="$PROJECT_DIR$/src/tests/Android" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.SearchTests.testCancelSearch" />
-      <item itemvalue="JUnit.MyListsTest.testSaveTwoArticlesToMyList" />
-      <item itemvalue="JUnit.ChangeAppConditionTests" />
-      <item itemvalue="JUnit.ChangeAppConditionTests.testChangeScreenOrientationSearchResults" />
       <item itemvalue="JUnit.ArticleTests" />
       <item itemvalue="JUnit.ArticleTests.testAssertTitleWithoutWait" />
+      <item itemvalue="JUnit.ChangeAppConditionTests" />
+      <item itemvalue="JUnit.ChangeAppConditionTests.testChangeScreenOrientationSearchResults" />
+      <item itemvalue="JUnit.MyListsTest" />
+      <item itemvalue="JUnit.MyListsTest.testSaveTwoArticlesToMyList" />
+      <item itemvalue="JUnit.SearchTests" />
+      <item itemvalue="JUnit.SearchTests.testTextOfSearchField" />
+      <item itemvalue="JUnit.SearchTests.testCancelSearch" />
+      <item itemvalue="JUnit.SearchTests.testCheckWordsAtSearch" />
+      <item itemvalue="JUnit.GetStartedTest" />
+      <item itemvalue="JUnit.GetStartedTest.testPassThroughWelcome" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ArticleTests.testAssertTitleWithoutWait" />
-        <item itemvalue="JUnit.ArticleTests" />
-        <item itemvalue="JUnit.ChangeAppConditionTests.testChangeScreenOrientationSearchResults" />
-        <item itemvalue="JUnit.ChangeAppConditionTests" />
-        <item itemvalue="JUnit.MyListsTest.testSaveTwoArticlesToMyList" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -256,7 +437,7 @@
       <workItem from="1629662142963" duration="3587000" />
       <workItem from="1629713765976" duration="468000" />
       <workItem from="1629735975421" duration="1455000" />
-      <workItem from="1629819290079" duration="12567000" />
+      <workItem from="1629819290079" duration="18034000" />
     </task>
     <task id="LOCAL-00001" summary="Ex8: Рефакторинг тестов">
       <created>1629665624513</created>
@@ -272,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629836491602</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавила библиотеки&#10;Поменяла код">
+      <created>1629838440638</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629838440638</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +469,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ex8: Рефакторинг тестов" />
     <MESSAGE value="Перебираемся на iOS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Перебираемся на iOS" />
+    <MESSAGE value="Добавила библиотеки&#10;Поменяла код" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавила библиотеки&#10;Поменяла код" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/JavaAppiumAutomation$SearchTests_testTextOfSearchField.ic" NAME="SearchTests.testTextOfSearchField Coverage Results" MODIFIED="1629832793976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

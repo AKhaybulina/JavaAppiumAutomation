@@ -1,7 +1,7 @@
-package tests;
+package tests.Android;
 
 import lib.CoreTestCase;
-import lib.UI.SearchPageObject;
+import lib.UI.Android.SearchPageObject;
 import org.junit.Test;
 
 public class SearchTests extends CoreTestCase {

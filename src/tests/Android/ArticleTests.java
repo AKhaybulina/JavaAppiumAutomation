@@ -1,8 +1,8 @@
-package tests;
+package tests.Android;
 
 import Azaza.SearchPageObjectAzaza;
 import lib.CoreTestCase;
-import lib.UI.ArticlePageObject;
+import lib.UI.Android.ArticlePageObject;
 import org.junit.Test;
 
 public class ArticleTests extends CoreTestCase {

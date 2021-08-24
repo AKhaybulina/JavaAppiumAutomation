@@ -1,4 +1,4 @@
-package tests;
+package tests.Android;
 
 import Azaza.ArticlePageObjectAzaza;
 import Azaza.SearchPageObjectAzaza;
