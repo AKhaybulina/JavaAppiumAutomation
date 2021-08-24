@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
+import java.time.Duration;
 
 public class iOSTestCase extends TestCase {
 
@@ -45,6 +46,6 @@ public class iOSTestCase extends TestCase {
     }
 
     protected void backgroundApp(int seconds) {
-        driver.runAppInBackground(seconds);
+        driver.runAppInBackground(Duration.ofSeconds(seconds));
     }
 }

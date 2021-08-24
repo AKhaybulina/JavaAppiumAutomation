@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
+import java.time.Duration;
 
 public class CoreTestCase extends TestCase {
 
@@ -40,7 +41,7 @@ public class CoreTestCase extends TestCase {
     }
 
     protected void backgroundApp(int seconds) {
-        driver.runAppInBackground(seconds);
+        driver.runAppInBackground(Duration.ofSeconds(seconds));
     }
 
     private DesiredCapabilities getCapabilitiesByPlatformEnv() throws Exception {
