@@ -1,10 +1,13 @@
 package tests.Android;
 
 import lib.CoreTestCase;
-import lib.UI.Android.ArticlePageObject;
-import lib.UI.Android.MyListsPageObject;
-import lib.UI.Android.NavigationUI;
-import lib.UI.Android.SearchPageObject;
+import lib.UI.Android.AndroidSearchPageObject;
+import lib.UI.ArticlePageObject;
+import lib.UI.MyListsPageObject;
+import lib.UI.NavigationUI;
+import lib.UI.SearchPageObject;
+import lib.UI.factories.ArticlePageObjectFactory;
+import lib.UI.factories.SearchPageObjectFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +16,7 @@ public class MyListsTest extends CoreTestCase {
     @Test
     public void testSaveTwoArticlesToMyList() {
 
-        SearchPageObject searchPageObject = new SearchPageObject(driver);
+        SearchPageObject searchPageObject = SearchPageObjectFactory.get(driver);
 
         String first_search_line = "Java";
         String second_search_line = "Python";
@@ -22,7 +25,7 @@ public class MyListsTest extends CoreTestCase {
         searchPageObject.typeSearchLine(first_search_line);
         searchPageObject.clickByArticleWithSubString("Object-oriented programming language");
 
-        ArticlePageObject articlePageObject = new ArticlePageObject(driver);
+        ArticlePageObject articlePageObject = ArticlePageObjectFactory.get(driver);
         articlePageObject.waitForTitleElement();
 
         String first_article_title = articlePageObject.getArticleTitle();

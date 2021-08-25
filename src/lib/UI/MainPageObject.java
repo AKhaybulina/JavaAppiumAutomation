@@ -66,6 +66,7 @@ public class MainPageObject {
         Dimension size = driver.manage().window().getSize();
         int x = size.width / 2;
         int start_y = (int) (size.height * 0.8);
+        System.out.println(start_y + size.height );
         int end_y = (int) (size.height * 0.2);
 
         action

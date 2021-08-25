@@ -1,4 +1,4 @@
-package lib.UI.Android;
+package lib.UI;
 
 import io.appium.java_client.AppiumDriver;
 import lib.UI.MainPageObject;

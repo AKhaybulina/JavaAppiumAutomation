@@ -1,20 +1,21 @@
-package lib.UI.Android;
+package lib.UI;
 
 import io.appium.java_client.AppiumDriver;
-import lib.UI.MainPageObject;
+import lib.Platform;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
-public class SearchPageObject extends MainPageObject {
+abstract public class SearchPageObject extends MainPageObject {
 
-    private static final String
-    SEARCH_INIT_ELEMENT = "xpath://*[contains(@text, 'Search Wikipedia')]",
-    SEARCH_INPUT = "xpath://*[contains(@text, 'Search…')]",
-    SEARCH_CANCEL_BUTTON = "xpath://android.widget.ImageView[@content-desc=\"Clear query\"]",
-    SEARCH_RESULT_BY_SUBSTRING_TPL = "xpath://*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='{SUBSTRING}']",
-    SEARCH_RESULT_ELEMENT = "xpath://*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
-    SEARCH_EMPTY_RESULT_ELEMENT = "xpath://*[@text='No results found']",
-    TEXT_IN_SEARCH_LINE = "id:org.wikipedia:id/search_src_text",
-    SEARCH_RESULT_ELEMENT_TITLE = "id:page_list_item_title";
+    protected static String
+    SEARCH_INIT_ELEMENT,
+    SEARCH_INPUT,
+    SEARCH_CANCEL_BUTTON,
+    SEARCH_RESULT_BY_SUBSTRING_TPL,
+    SEARCH_RESULT_ELEMENT,
+    SEARCH_EMPTY_RESULT_ELEMENT,
+    TEXT_IN_SEARCH_LINE,
+    SEARCH_RESULT_ELEMENT_TITLE;
 
     public SearchPageObject(AppiumDriver driver) {
         super(driver);
@@ -27,7 +28,7 @@ public class SearchPageObject extends MainPageObject {
     /* TEMPLATES METHODS */
 
     public void initSearchInput() {
-        this.waitForElementPresent(SEARCH_INIT_ELEMENT, "Cannot find search input after clicking search init element", 5);
+        this.waitForElementPresent(SEARCH_INIT_ELEMENT, "Cannot find search input after clicking search init element", 15);
         this.waitForElementAndClick(SEARCH_INIT_ELEMENT, "Cannot find and click search init element", 5);
     }
 
@@ -75,13 +76,22 @@ public class SearchPageObject extends MainPageObject {
     }
 
     public String getSearchLineText() {
-        return this.waitForElementAndGetAttribute(TEXT_IN_SEARCH_LINE, "text", "Cannot find text at search line", 5);
+        if (Platform.getInstance().isAndroid()) {
+            return this.waitForElementAndGetAttribute(TEXT_IN_SEARCH_LINE, "text", "Cannot find text at search line", 5);
+        } else
+            return this.waitForElementAndGetAttribute(TEXT_IN_SEARCH_LINE, "value", "Cannot find text at search line", 5);
+
     }
 
     public void assertWordsAtSearch(String searchWord) {
-        int i = 0;
+        this.waitForElementPresent(SEARCH_RESULT_ELEMENT_TITLE, "error", 15);
+        int i = 1;
         do {
-            Assert.assertTrue("Нужного слова нет в результатах поиска", this.findAllElementsOnPage(SEARCH_RESULT_ELEMENT_TITLE).get(i).getAttribute("text").contains(searchWord));
+            if (Platform.getInstance().isAndroid()) {
+                Assert.assertTrue("Нужного слова нет в результатах поиска", findAllElementsOnPage(SEARCH_RESULT_ELEMENT_TITLE).get(i).getAttribute("text").contains(searchWord));
+            } else
+                Assert.assertTrue("Нужного слова нет в результатах поиска" + findAllElementsOnPage(SEARCH_RESULT_ELEMENT_TITLE).get(i).getAttribute("value"), findAllElementsOnPage(SEARCH_RESULT_ELEMENT_TITLE).get(i).getAttribute("value").contains(searchWord));
+
             i++;
         } while (i < getAmountOfFoundArticles());
     }

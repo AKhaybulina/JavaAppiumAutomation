@@ -1,35 +1,40 @@
-package lib.UI.Android;
+package lib.UI;
 
 import io.appium.java_client.AppiumDriver;
+import lib.Platform;
 import lib.UI.MainPageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class ArticlePageObject extends MainPageObject {
+abstract public class ArticlePageObject extends MainPageObject {
 
-    private static final String
-    TITLE = "org.wikipedia:id/view_page_title_text",
-    FOOTER_ELEMENT = "xpath://*[@text='View page in browser']",
-    OPTIONS_BUTTON = "xpath://android.widget.ImageView[@content-desc='More options']",
-    OPTIONS_FULL_MENU = "xpath://*[@class = 'android.widget.ListView']",
-    OPTIONS_ADD_TO_MY_LIST_BUTTON = "xpath://*[@text='Add to reading list']",
-    ADD_TO_MY_LIST_OVERLAY = "id:onboarding_button",
-    MY_LIST_NAME_INPUT = "id:text_input",
-    MY_LIST_OK_BUTTON = "xpath://*[@text='OK']",
-    CLOSE_ARTICLE_BUTTON = "xpath://android.widget.ImageButton[@content-desc='Navigate up']";
+    protected static String
+    TITLE,
+    FOOTER_ELEMENT,
+    OPTIONS_BUTTON ,
+    OPTIONS_FULL_MENU,
+    OPTIONS_ADD_TO_MY_LIST_BUTTON,
+    ADD_TO_MY_LIST_OVERLAY,
+    MY_LIST_NAME_INPUT,
+    MY_LIST_OK_BUTTON,
+    CLOSE_ARTICLE_BUTTON;
 
     public ArticlePageObject(AppiumDriver driver) {
         super(driver);
     }
 
     public WebElement waitForTitleElement() {
-        return this.waitForElementPresent(TITLE, "Cannot find article title on page", 15);
+        return this.waitForElementPresent(TITLE, "Cannot find article title on page", 25);
     }
 
     public String getArticleTitle() {
+        this.waitForElementPresent(TITLE, "Cannot find article title on page", 25);
         WebElement title_element = waitForTitleElement();
-        return title_element.getAttribute("text");
+        if (Platform.getInstance().isAndroid()) {
+            return title_element.getAttribute("text");
+        } else
+            return title_element.getAttribute("name");
     }
 
     public void swipeToFooter() {

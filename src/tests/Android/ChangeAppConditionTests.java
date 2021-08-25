@@ -1,25 +1,27 @@
 package tests.Android;
 
-import Azaza.ArticlePageObjectAzaza;
-import Azaza.SearchPageObjectAzaza;
 import lib.CoreTestCase;
+import lib.UI.ArticlePageObject;
+import lib.UI.SearchPageObject;
+import lib.UI.factories.ArticlePageObjectFactory;
+import lib.UI.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
 public class ChangeAppConditionTests extends CoreTestCase {
     @Test
     public void testChangeScreenOrientationSearchResults() {
-        SearchPageObjectAzaza SearchPageObjectAzaza = new SearchPageObjectAzaza(driver);
+        SearchPageObject searchPageObject = SearchPageObjectFactory.get(driver);
 
-        SearchPageObjectAzaza.initSearchInput();
-        SearchPageObjectAzaza.typeSearchLine("Java");
-        SearchPageObjectAzaza.clickByArticleWithSubString("Object-oriented programming language");
+        searchPageObject.initSearchInput();
+        searchPageObject.typeSearchLine("Java");
+        searchPageObject.clickByArticleWithSubString("Object-oriented programming language");
 
-        ArticlePageObjectAzaza ArticlePageObjectAzaza = new ArticlePageObjectAzaza(driver);
-        String title_before_rotation = ArticlePageObjectAzaza.getArticleTitle();
+        ArticlePageObject articlePageObject = ArticlePageObjectFactory.get(driver);
+        String title_before_rotation = articlePageObject.getArticleTitle();
 
         this.rotateScreenLandscape();
 
-        String title_after_rotation = ArticlePageObjectAzaza.getArticleTitle();
+        String title_after_rotation = articlePageObject.getArticleTitle();
 
         assertEquals(
                 "Article title have been changed after screen rotation",
@@ -29,7 +31,7 @@ public class ChangeAppConditionTests extends CoreTestCase {
 
         this.rotateScreenPortrait();
 
-        String title_after_second_rotation = ArticlePageObjectAzaza.getArticleTitle();
+        String title_after_second_rotation = articlePageObject.getArticleTitle();
 
         assertEquals(
                 "Article title have been changed after screen rotation",
