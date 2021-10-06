@@ -5,7 +5,7 @@ import lib.UI.ArticlePageObject;
 
 public class AndroidArticlePageObject extends ArticlePageObject {
     static {
-        TITLE = "org.wikipedia:id/view_page_title_text";
+        FIRST_TITLE = "id:org.wikipedia:id/view_page_title_text";
         FOOTER_ELEMENT = "xpath://*[@text='View page in browser']";
         OPTIONS_BUTTON = "xpath://android.widget.ImageView[@content-desc='More options']";
         OPTIONS_FULL_MENU = "xpath://*[@class = 'android.widget.ListView']";

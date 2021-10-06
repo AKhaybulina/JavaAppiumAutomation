@@ -14,6 +14,7 @@ public class IOSSearchPageObject extends SearchPageObject {
         SEARCH_EMPTY_RESULT_ELEMENT = "xpath://XCUIElementTypeStaticText[@name='No results found']";
         TEXT_IN_SEARCH_LINE = "xpath://XCUIElementTypeSearchField[@name='Search Wikipedia']";
         SEARCH_RESULT_ELEMENT_TITLE = "xpath://XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther[2]/XCUIElementTypeStaticText[1]";
+        CLEAN_SEARCH_LINE_BUTTON = "id:Clear text";
     }
 
     public IOSSearchPageObject(AppiumDriver driver) {

@@ -3,7 +3,6 @@ package lib.UI;
 import io.appium.java_client.AppiumDriver;
 import lib.Platform;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 
 abstract public class SearchPageObject extends MainPageObject {
 
@@ -15,7 +14,8 @@ abstract public class SearchPageObject extends MainPageObject {
     SEARCH_RESULT_ELEMENT,
     SEARCH_EMPTY_RESULT_ELEMENT,
     TEXT_IN_SEARCH_LINE,
-    SEARCH_RESULT_ELEMENT_TITLE;
+    SEARCH_RESULT_ELEMENT_TITLE,
+    CLEAN_SEARCH_LINE_BUTTON;
 
     public SearchPageObject(AppiumDriver driver) {
         super(driver);
@@ -42,6 +42,10 @@ abstract public class SearchPageObject extends MainPageObject {
 
     public void clickCancelSearch() {
         this.waitForElementAndClick(SEARCH_CANCEL_BUTTON, "Cannot find and click search cancel button", 5);
+    }
+
+    public void clearSearchLine() {
+        this.waitForElementAndClick(CLEAN_SEARCH_LINE_BUTTON, "errro", 10);
     }
 
     public void typeSearchLine(String search_line) {

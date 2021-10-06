@@ -1,7 +1,7 @@
 package lib.UI;
 
 import io.appium.java_client.AppiumDriver;
-import lib.UI.MainPageObject;
+import lib.Platform;
 
 public class MyListsPageObject extends MainPageObject {
 
@@ -10,7 +10,10 @@ public class MyListsPageObject extends MainPageObject {
         }
     private static final String
     FOLDER_BY_NAME_TPL = "xpath://*[@text='{FOLDER_NAME}']",
-    ARTICLE_BY_TITLE_TPL = "xpath://*[@text='{TITLE}']";
+    ARTICLE_BY_TITLE_TPL = "xpath://*[@text='{TITLE}']",
+    LOG_IN_POP_UP = "id:Sync your saved articles?",
+    CLOSE_LOG_IN_POP_UP_BUTTON = "id:Close",
+    DELETE_ARTICLE_BUTTON = "id:swipe action delete";
 
     /* TEMPLATES METHODS */
     private static String getFolderXpathByName(String name_of_folder) {
@@ -24,6 +27,7 @@ public class MyListsPageObject extends MainPageObject {
 
     public void openFolderByName(String name_of_folder) {
         String folder_name_xpath = getFolderXpathByName(name_of_folder);
+        this.waitForElementPresent(folder_name_xpath, "Cannot find folder by name '" + name_of_folder + "'");
         this.waitForElementAndClick(
                 folder_name_xpath,
                 "Cannot find folder by name '" + name_of_folder + "'",
@@ -32,18 +36,25 @@ public class MyListsPageObject extends MainPageObject {
     }
 
     public void waitForArticleToAppearByTitle(String article_title) {
-        String article_xpath = getSavedArticleXpathByTitle(article_title);
-        this.waitForElementPresent(
-                article_xpath,
-                "Cannot find saved article by title '" + article_title + "'",
-                15
-        );
+        String article;
+        if (Platform.getInstance().isAndroid()) {
+            article = getSavedArticleXpathByTitle(article_title);
+        } else article = "id:" + article_title;
+
+            this.waitForElementPresent(
+                    article,
+                    "Cannot find saved article by title '" + article_title + "'",
+                    15
+            );
     }
 
     public void waitForArticleToDisappearByTitle(String article_title) {
-        String article_xpath = getSavedArticleXpathByTitle(article_title);
+        String article;
+        if (Platform.getInstance().isAndroid()) {
+           article = getSavedArticleXpathByTitle(article_title);
+        } else article = "id:" + article_title;
         this.waitForElementNotPresent(
-                article_xpath,
+                article,
                 "Saved article still present with title '" + article_title + "'",
                 15
         );
@@ -51,12 +62,14 @@ public class MyListsPageObject extends MainPageObject {
 
     public void swipeByArticleToDelete(String article_title) {
         this.waitForArticleToAppearByTitle(article_title);
-        String article_xpath = getSavedArticleXpathByTitle(article_title);
+        String article;
+        if (Platform.getInstance().isAndroid()) {
+            article = getSavedArticleXpathByTitle(article_title);
+        } else article = "id:" + article_title;
         this.swipeElementToLeft(
-                article_xpath,
+                article,
                 "Cannot find saved article"
         );
-        this.waitForArticleToDisappearByTitle(article_title);
     }
 
     public void clickOnArticle(String articleName) {
@@ -64,5 +77,25 @@ public class MyListsPageObject extends MainPageObject {
                 "xpath://*[@text='" + articleName + "']",
                 "Cannot find list with articles",
                 5);
+    }
+
+    public void clickCloseOnLogInPopUp() {
+        this.waitForElementPresent(
+                LOG_IN_POP_UP,
+                "Cannot log-in popup"
+        );
+        this.waitForElementAndClick(
+                CLOSE_LOG_IN_POP_UP_BUTTON,
+                "Cannot screen name 'SAVED'",
+                5
+        );
+    }
+
+    public void clickDeleteArticleButton() {
+        this.waitForElementAndClick(
+                DELETE_ARTICLE_BUTTON,
+                "Cannot find button 'DELETE'",
+                5
+        );
     }
 }

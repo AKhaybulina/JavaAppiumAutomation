@@ -1,11 +1,8 @@
 package tests.Android;
 
 import lib.CoreTestCase;
-import lib.UI.Android.AndroidSearchPageObject;
-import lib.UI.ArticlePageObject;
-import lib.UI.MyListsPageObject;
-import lib.UI.NavigationUI;
-import lib.UI.SearchPageObject;
+import lib.Platform;
+import lib.UI.*;
 import lib.UI.factories.ArticlePageObjectFactory;
 import lib.UI.factories.SearchPageObjectFactory;
 import org.junit.Assert;
@@ -20,6 +17,7 @@ public class MyListsTest extends CoreTestCase {
 
         String first_search_line = "Java";
         String second_search_line = "Python";
+        String second_article_title;
 
         searchPageObject.initSearchInput();
         searchPageObject.typeSearchLine(first_search_line);
@@ -31,28 +29,68 @@ public class MyListsTest extends CoreTestCase {
         String first_article_title = articlePageObject.getArticleTitle();
         String nameOfFolder = "Learning programming";
 
-        articlePageObject.addArticleToMyList(nameOfFolder);
+        if (Platform.getInstance().isAndroid()) {
+            articlePageObject.addArticleToMyList(nameOfFolder);
+        } else
+            articlePageObject.addArticleToSaved();
         articlePageObject.closeArticle();
 
+        if (Platform.getInstance().isIOS()) {
+            searchPageObject.clearSearchLine();
+        }
         searchPageObject.initSearchInput();
         searchPageObject.typeSearchLine(second_search_line);
-        searchPageObject.clickByArticleWithSubString("General-purpose programming language");
-        articlePageObject.waitForTitleElement();
-        String second_article_title = articlePageObject.getArticleTitle();
-        articlePageObject.addArticleToExistingList(nameOfFolder);
-        articlePageObject.closeArticle();
+        if (Platform.getInstance().isAndroid()) {
+            searchPageObject.clickByArticleWithSubString("General-purpose programming language");
+        } else
+            searchPageObject.clickByArticleWithSubString("General-purpose, high-level programming language");
+        if (Platform.getInstance().isAndroid()) {
+            articlePageObject.waitForTitleElement();
+            second_article_title = articlePageObject.getArticleTitle();
+        } else {
+            articlePageObject.waitForSecondTitleElementForIOS();
+            second_article_title = articlePageObject.getSecondArticleTitleForIOS();
+        }
 
-        NavigationUI NavigationUI = new NavigationUI(driver);
-        NavigationUI.clickMyLists();
+        if (Platform.getInstance().isAndroid()) {
+            articlePageObject.addArticleToExistingList(nameOfFolder);
+            articlePageObject.closeArticle();
+        } else
+            articlePageObject.addArticleToSaved();
 
-        MyListsPageObject MyListsPageObject = new MyListsPageObject(driver);
-        MyListsPageObject.openFolderByName(nameOfFolder);
-        MyListsPageObject.swipeByArticleToDelete(first_article_title);
-        MyListsPageObject.clickOnArticle(second_article_title);
+        MyListsPageObject myListsPageObject = new MyListsPageObject(driver);
+        BasePageObject basePageObject = new BasePageObject(driver);
 
-        String name_of_article_at_folder = articlePageObject.getArticleTitle();
+        if (Platform.getInstance().isAndroid()) {
+            NavigationUI NavigationUI = new NavigationUI(driver);
+            NavigationUI.clickMyLists();
 
-        Assert.assertEquals("Article at folder not  '" + second_article_title + "'", second_article_title, name_of_article_at_folder);
+            myListsPageObject.openFolderByName(nameOfFolder);
+        }
+        else {
+            articlePageObject.clickWikiMainButton();
+            basePageObject.clickSavedButton();
+            myListsPageObject.clickCloseOnLogInPopUp();
+        }
+        myListsPageObject.swipeByArticleToDelete(first_article_title);
+        if (Platform.getInstance().isAndroid()) {
+            myListsPageObject.waitForArticleToDisappearByTitle(first_article_title);
+            myListsPageObject.clickOnArticle(second_article_title);
+
+            String name_of_article_at_folder = articlePageObject.getArticleTitle();
+
+            Assert.assertEquals("Article at folder not  '" + second_article_title + "'", second_article_title, name_of_article_at_folder);
+        }
+        else {
+            myListsPageObject.clickDeleteArticleButton();
+            myListsPageObject.waitForArticleToDisappearByTitle(first_article_title);
+            basePageObject.clickExploreButton();
+            searchPageObject.initSearchInput();
+            searchPageObject.typeSearchLine(second_search_line);
+            searchPageObject.clickByArticleWithSubString("General-purpose, high-level programming language");
+            articlePageObject.waitForSecondTitleElementForIOS();
+            articlePageObject.assertThatArticleIsSaved();
+        }
     }
 
 }
